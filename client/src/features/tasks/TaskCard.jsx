@@ -21,6 +21,8 @@ const statusColors = {
 const TaskCard = ({ task, onEdit, onDelete, isAdmin, currentUserId }) => {
   const isCreator = task.createdBy?._id === currentUserId || task.createdBy === currentUserId;
   const canDelete = isAdmin || isCreator;
+  const canEdit = isAdmin || isCreator;
+
   const formatDate = (date) => {
     if (!date) return null;
     return new Date(date).toLocaleDateString('en-US', {
@@ -65,14 +67,16 @@ const TaskCard = ({ task, onEdit, onDelete, isAdmin, currentUserId }) => {
       </div>
 
       <div className="task-actions">
-        <button
-          onClick={() => onEdit(task)}
-          className="btn btn-sm btn-ghost"
-          title="Edit task"
-          id={`edit-task-${task._id}`}
-        >
-          <HiOutlinePencil />
-        </button>
+        {canEdit && (
+          <button
+            onClick={() => onEdit(task)}
+            className="btn btn-sm btn-ghost"
+            title="Edit task"
+            id={`edit-task-${task._id}`}
+          >
+            <HiOutlinePencil />
+          </button>
+        )}
         {canDelete && (
           <button
             onClick={() => onDelete(task._id)}

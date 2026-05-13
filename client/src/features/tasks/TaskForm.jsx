@@ -142,6 +142,7 @@ const TaskForm = ({ editTask, onClose }) => {
                 name="dueDate"
                 value={formData.dueDate}
                 onChange={onChange}
+                min={new Date().toISOString().split("T")[0]}
               />
             </div>
 

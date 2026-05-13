@@ -163,17 +163,16 @@ const updateTask = async (req, res) => {
       return res.status(404).json({ success: false, message: 'Task not found' });
     }
 
-    // Only task creator, assignee, or admin can update
+    // Only task creator or admin can update
     const isCreator = task.createdBy.toString() === req.user._id.toString();
-    const isAssignee = task.assignee && task.assignee.toString() === req.user._id.toString();
     const isAdmin = req.user.role === 'admin';
 
-    if (!isCreator && !isAssignee && !isAdmin) {
+    if (!isCreator && !isAdmin) {
       return res.status(403).json({ success: false, message: 'Not authorized to update this task' });
     }
 
     // Only admins can reassign tasks
-    if (req.body.assignee && !isAdmin) {
+    if (req.body.assignee && req.body.assignee !== task.assignee?.toString() && !isAdmin) {
       return res.status(403).json({ success: false, message: 'Only admins can reassign tasks' });
     }
 
