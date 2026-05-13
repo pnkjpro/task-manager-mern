@@ -22,8 +22,4 @@ Thumbs.db
 .idea/
 
 # Testing
-coverage/
-
-prd.pdf
-execution_plan.md
-memory.md 
+coverage/ 

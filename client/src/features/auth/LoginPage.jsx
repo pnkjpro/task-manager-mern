@@ -45,7 +45,7 @@ const LoginPage = () => {
         <div className="auth-header">
           <div className="auth-logo">
             <div className="logo-icon">✓</div>
-            <h1>TaskFlow</h1>
+            <h1>Task Management</h1>
           </div>
           <p className="auth-subtitle">Welcome back! Sign in to manage your tasks.</p>
         </div>

@@ -18,7 +18,9 @@ const statusColors = {
   done: 'status-done',
 };
 
-const TaskCard = ({ task, onEdit, onDelete, isAdmin }) => {
+const TaskCard = ({ task, onEdit, onDelete, isAdmin, currentUserId }) => {
+  const isCreator = task.createdBy?._id === currentUserId || task.createdBy === currentUserId;
+  const canDelete = isAdmin || isCreator;
   const formatDate = (date) => {
     if (!date) return null;
     return new Date(date).toLocaleDateString('en-US', {
@@ -71,14 +73,16 @@ const TaskCard = ({ task, onEdit, onDelete, isAdmin }) => {
         >
           <HiOutlinePencil />
         </button>
-        <button
-          onClick={() => onDelete(task._id)}
-          className="btn btn-sm btn-ghost btn-danger"
-          title="Delete task"
-          id={`delete-task-${task._id}`}
-        >
-          <HiOutlineTrash />
-        </button>
+        {canDelete && (
+          <button
+            onClick={() => onDelete(task._id)}
+            className="btn btn-sm btn-ghost btn-danger"
+            title="Delete task"
+            id={`delete-task-${task._id}`}
+          >
+            <HiOutlineTrash />
+          </button>
+        )}
       </div>
     </div>
   );

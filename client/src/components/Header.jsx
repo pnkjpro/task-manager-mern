@@ -28,7 +28,7 @@ const Header = () => {
       <div className="header-left">
         <Link to="/" className="header-logo">
           <div className="logo-icon-sm">✓</div>
-          <span className="header-brand">TaskFlow</span>
+          <span className="header-brand">Task Management</span>
         </Link>
       </div>
 

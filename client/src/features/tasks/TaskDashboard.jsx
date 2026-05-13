@@ -159,6 +159,7 @@ const TaskDashboard = () => {
                   onEdit={handleEdit}
                   onDelete={handleDelete}
                   isAdmin={user?.role === 'admin'}
+                  currentUserId={user?._id}
                 />
               ))}
             </div>

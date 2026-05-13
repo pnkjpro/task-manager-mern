@@ -59,7 +59,7 @@ const RegisterPage = () => {
         <div className="auth-header">
           <div className="auth-logo">
             <div className="logo-icon">✓</div>
-            <h1>TaskFlow</h1>
+            <h1>Task Management</h1>
           </div>
           <p className="auth-subtitle">Create your account and start managing tasks.</p>
         </div>

@@ -2,6 +2,12 @@
 
 A production-ready task management application built with the MERN stack (MongoDB, Express.js, React, Node.js).
 
+## Deployment
+
+The application is deployed on an AWS EC2 Ubuntu instance using Nginx, PM2, and MongoDB Atlas. 
+
+**Live Demo**: [http://15.207.59.180/](http://15.207.59.180/)
+
 ## Features
 
 - **JWT Authentication** — Register, login, and secure routes with JSON Web Tokens
